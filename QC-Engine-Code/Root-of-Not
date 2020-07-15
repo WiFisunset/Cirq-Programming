@@ -1,0 +1,18 @@
+// RNOT's; the Square Root of the NOT Gate (target looking gate; you know the matrix for it).
+
+// Circle Notation Graphics
+qc_options.color_by_phase = true;
+qc_options.book_render = true;
+
+qc.reset(1);
+qc.write(0);
+
+// Root-Of-Not
+qc.had();
+qc.phase(90);
+qc.had(); // Superposition state (both take 45 degree of the rotation when hadamard gates are applied.)
+
+// Running twice makes it a NOT Gate.
+//qc.had();
+//qc.phase(90);
+//qc.had();
