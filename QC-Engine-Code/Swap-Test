@@ -1,0 +1,24 @@
+// Circle Notation Graphics
+qc_options.color_by_phase = true;
+qc_options.book_render = true;
+
+qc.reset(3);
+var input1 = qint.new(1, 'input1');
+var input2 = qint.new(1, 'input2');
+var output = qint.new(1, 'output');
+
+// Initialize to any states we want to test.
+input1.write(0);
+input2.write(0);
+
+// The Swap Test itself.
+output.write(0);
+output.had();
+
+// Now Exchange the two inputs conditional on the output qubits.
+input1.exchange(input2, 0x1, output.bits());
+output.had();
+output.not();
+var result = output.read();
+
+// Result is 1 if the inputs are equal.
