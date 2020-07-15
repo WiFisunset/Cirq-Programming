@@ -1,0 +1,13 @@
+OPENQASM 2.0;
+include "qelib1.inc";
+
+qreg input1[1];
+qreg input2[1];
+qreg output[1];
+creg outputc[1];
+
+h output[0];
+cswap output[0],input1[0],input2[0];
+h output[0];
+x output[0];
+measure output[0] -> outputc[0];
